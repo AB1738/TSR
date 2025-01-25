@@ -34,9 +34,9 @@ const Navbar = () => {
                     </li>
                 </ul>
             </div>
-            <NavLink to={'/'} className='nav-link-header' >
-            <h2 className='nav-header'>The Sports Room</h2>
-             </NavLink>
+            
+            <h2 className='nav-header'><NavLink to={'/'} className='nav-link-header' >The Sports Room</NavLink></h2>
+             
             
             <div className='right-nav-content-wrapper'>
                 <ul className={`right-nav-content ${isMobile ? 'mobile' : ''}`}>

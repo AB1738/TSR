@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar'
 import Home from './pages/Home';
@@ -9,8 +10,9 @@ import CBB from './pages/CBB';
 import WNBA from './pages/WNBA';
 import CFB from './pages/CFB';
 import UFC from './pages/UFC';
-import NHL from './pages/NFL';
+import NHL from './pages/NHL';
 import NotFound from './pages/NotFound';
+import Article from './pages/Article';
 import './App.css'
 
 
@@ -31,6 +33,8 @@ function App() {
           <Route path="/wnba" element={<WNBA />} />
           <Route path="/ufc" element={<UFC />} />
           <Route path="/nhl" element={<NHL />} />
+          <Route path="/:sport/:id" element={<Article />} />
+          <Route path="/not-found" element={<NotFound />} />
           <Route path="*" element={<NotFound />} />
           </Routes>
     </Router>

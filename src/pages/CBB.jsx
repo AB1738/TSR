@@ -1,35 +1,27 @@
-import React from 'react'
-import { useState ,useEffect} from 'react'
-import NewsGrid from '../components/NewsGrid'
+import React from "react";
+import { useState, useEffect } from "react";
+import NewsGrid from "../components/NewsGrid";
+import useFetch from "../hooks/useFetch";
+import Spinner from "react-bootstrap/Spinner";
 
 const CBB = () => {
-  const [info,setInfo]=useState('')
-  const[isLoading,setIsLoading]=useState(false)
-
-  useEffect(()=>{
-    const fetchData=async()=>{
-      try{
-        setIsLoading(true)
-        const response=await fetch('http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/news')
-        const data=await response.json()
-        console.log(data)
-        setInfo(data)
-        setIsLoading(false)
-      }catch(e){
-        console.error(e)
-      }
-     
-    }
-    console.log(info)
-    fetchData()
-  },[])
-  
+  const { info, isLoading, error } = useFetch("http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/news");
   return (
-    <main className='content-wrapper'>
-      {isLoading?<h3>Loading...</h3>: <NewsGrid info={info.articles} />}
-      
+    <main className="content-wrapper">
+      {isLoading ? (
+        <div
+          className="d-flex justify-content-center align-items-center"
+          style={{ height: "100vh" }}
+        >
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        </div>
+      ) : (
+        <NewsGrid info={info.articles} sport="cbb" />
+      )}
     </main>
-  )
-}
+  );
+};
 
-export default CBB
+export default CBB;
