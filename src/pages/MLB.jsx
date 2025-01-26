@@ -19,7 +19,7 @@ const MLB = () => {
           </Spinner>
         </div>
       ) : (
-        <NewsGrid info={info.articles} sport="lmv" />
+        <NewsGrid info={info.articles} sport="mlb" />
       )}
       
     </main>
