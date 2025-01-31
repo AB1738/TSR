@@ -3,6 +3,7 @@ import { useLocation,Navigate, useParams } from 'react-router-dom'
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Chat from '../components/Chat';
+import '../css/Article.css'
 const Article = () => {
 
   //to fetch the state that was passed to the navlink through the newsitem component
@@ -51,15 +52,16 @@ const Article = () => {
     
       },[])
 
-
-
+      // background: linear-gradient(135deg, #D6A4D2, #A8D0E6);
+    // box-shadow: -3px 2px 3px rgba(0,0,0,.5);
+    
   return (
-    <div className='d-flex justify-content-center'>
+    <main className='content-container'>
 
       {(!isLoading &&(articleData || fetchedArticle[0]))?(
         <>
-        <Card style={{ width: '25rem' }}>
-  <Card.Title className="text-center">{(articleData && articleData.headline) || (fetchedArticle[0] && fetchedArticle[0].headline)}</Card.Title>
+        <Card className='card'>
+  <Card.Title className="card-title">{(articleData && articleData.headline) || (fetchedArticle[0] && fetchedArticle[0].headline)}</Card.Title>
 
   <Card.Img 
   variant="top" 
@@ -74,42 +76,42 @@ const Article = () => {
   )}
 />
 
-<Card.Body>
-  <Card.Text>
+<Card.Body className='card-body' >
+  <Card.Text className='card-text' >
     {(articleData && articleData.description) || 
      (fetchedArticle[0] && fetchedArticle[0].description)}
   </Card.Text>
-  <div className="d-flex flex-wrap justify-content-center">
+  {/* <div className="d-flex flex-wrap justify-content-center">
   {(articleData?.categories || fetchedArticle[0]?.categories)?.map((category, index) =>
     category.description && (
       <span
         key={index}
         className="badge badge-pill badge-primary m-1"
-        style={{ fontSize: '0.8rem', color: 'black' }}
+        style={{ fontSize: '0.8rem', color: 'white',backgroundColor:'grey' }}
       >
         {category.description}
       </span>
     )
   )}
-</div>
+</div> */}
 
 </Card.Body>
 
-<Card.Footer className='d-flex justify-content-center'>
-  <small className="text-muted">
+<Card.Footer className='card-footer' >
+  <small className="text-light">
     Published on {new Date((articleData && articleData.published) || 
                            (fetchedArticle[0] && fetchedArticle[0].published)).toLocaleDateString()}
   </small>
 </Card.Footer>
 
 </Card>
-<Chat/>
+<Chat className='chat'/>
 </>
       ):<div>Loading...</div>}
 
 
 
-    </div>
+    </main>
   )
 }
 

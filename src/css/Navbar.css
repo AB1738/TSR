@@ -1,10 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@400..900&display=swap');
 .navbar{
  height: 10vh;
- background-color: rgba(0, 0, 0, 0.47);
+ /* background-color: rgb(84, 82, 82); */
+ /* background-color: #2C3E50; */
+ /* background-color: black; */
+ background-color: #c3ccaf;
+ /* border-bottom: 2px solid white; */
+ border-bottom: 3px solid #66424e;
  display: flex;
  justify-content: space-between;
  align-items: center;
- font-family: 'Courier New', Courier, monospace;
+ font-family: "Orbitron", serif;
+ position: sticky;
+ top: 0;
+ z-index: 10;
 }
 .left-nav-content-wrapper{
     /* background-color: red; */
@@ -20,10 +29,22 @@
     color: white;
     width: 33.33%;
     margin: 0;
+    font-size: clamp(1.25rem, 1.036rem + 1.071vw, 2.75rem);
 }
 .nav-header a{
     text-decoration: none;
-    color:white;
+    color: transparent;
+    /* background-image: linear-gradient(90deg, #ff3b3b 50%, #67434f 50%); */
+    background-image: linear-gradient(90deg, #9c8184 50%, #67434f 50%);
+    background-position:100%;
+    background-size:200% 100%;
+    background-clip:text;
+    -webkit-background-clip:text;
+    transition: background-position .35s ease;
+    text-shadow: 2px 2px .5px rgba(255, 255, 255, 0.275);
+}
+.nav-header a:hover{
+    background-position:0;
 }
 
 .left-nav-content{
@@ -64,13 +85,16 @@
 
 .nav-link{
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.616);
+    /* color: hsl(340, 21%, 63%); */
+    color: rgba(103, 67, 79, 0.616);
 }
 .nav-link:hover{
-    color: white;
+    color: #67434f;
+    font-weight: bold;
 }
 .nav-link.active{
-    color: white;
+    color: #67434f;
+    font-weight: bold;
 }
 .hamburger{
     background-color: white;
@@ -78,12 +102,102 @@
 }
 
 @media(max-width:750px){
-    /* .hamburger{
+    .hamburger{
         display: block;
+        position: absolute;
+        right: 0;
+        margin-right: .3rem;
+        border: 3px solid white;
+        background-color: #67434f;
+        padding: .25em .5em .25em .5em;
+        border-radius: 5px;
+    }
+    .hamburger:hover{
+        background-color: hsl(340, 21%, 33%);
+    }
+    .hamburger-icon{
+        color: white;
+        height: 1.5em;
+        width: 1.5em;
+    }
+    .close-icon{
+        color: white;
+        height: 1.5em;
+        width: 1.5em;
     }
     .navbar{
+        /* flex-direction: column; */
+        position: sitcky;
+        top: 0;
+        width: 100%;
+    }
+    .nav-header{
+        width: 100%;
+        position: absolute;
+        /* margin-top: 1.2rem; */
+    }
+    .left-nav-content-wrapper{
+        visibility: hidden;
+        position: relative;
+        opacity: 0;
+        transition: opacity 0.5s ease; /* Fade in/out and visibility delay */
+    }
+    .right-nav-content-wrapper{
+        visibility: hidden;
+        opacity: 0;
+        position: relative;
+        transition: opacity 0.5s ease; /* Fade in/out and visibility delay */
+    }
+    .left-nav-content-wrapper.mobile{
+        opacity: 1;
+        visibility: visible;
+        display: block;
+        position: relative;
+        top: 8vh;
+        background-color: #c3ccaf;
+        width: 100%;
+        z-index: 10;
+        }
+    .right-nav-content-wrapper.mobile{
+        opacity: 1;
+        visibility: visible;
+        display: block;
+        position: relative;
+        top: 8vh;
+        background-color: #c3ccaf;
+        width: 100%;
+        z-index: 10;
+        }
+    .right-nav-content{
+        /* display: none; */
         flex-direction: column;
-    } */
+        position: relative;
+        align-items: center;
+    }
+    .right-nav-content li{
+        padding: .25rem;
+        width: 100%;
+        text-align: center;
+    }
+    .left-nav-content li{
+        padding: .25rem;
+        width: 100%;
+        text-align: center;
+    }
+    .right-nav-content li:hover{
+        /* background-color: hsl(210, 29%, 34%); */
+        background-color: hsl(79, 22%, 84%);
+    }
+    .left-nav-content li:hover{
+        /* background-color: hsl(210, 29%, 34%); */
+        background-color: hsl(79, 22%, 84%);
+    }
+    .left-nav-content{
+        /* display: none; */
+        flex-direction: column;
+        position: relative;
+        align-items: center;
+    }
 }
 
 

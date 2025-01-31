@@ -13,6 +13,7 @@ import UFC from './pages/UFC';
 import NHL from './pages/NHL';
 import NotFound from './pages/NotFound';
 import Article from './pages/Article';
+import Footer from './components/Footer';
 import './App.css'
 
 
@@ -21,7 +22,6 @@ function App() {
   return (
     <>
     <Router>
-
      <Navbar/>
      <Routes>
           <Route path="/" element={<Home />} />
@@ -38,7 +38,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
           </Routes>
     </Router>
-
+    <Footer/>
     </>
   )
 }

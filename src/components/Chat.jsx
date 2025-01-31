@@ -4,13 +4,19 @@ import { collection, addDoc,getDocs,doc, onSnapshot,query,orderBy } from "fireba
 import { useParams } from 'react-router-dom';
 import { Filter } from 'bad-words'
 import { v4 as uuid } from 'uuid'
+import Message from './Message';
+import ChatBox from './ChatBox';
+import '../css/Chat.css'
 
 
 const Chat = () => {
     const [inputText,setInputText]=useState('')
     const [message,setMessage]=useState('')
     const[messages,setMessages]=useState([])
-    const hasFetchedRef = useRef(false);
+    const messageRef = useRef();
+
+
+
 
     //grab the id for the article so that messages can be linked to that specific article
     let params = useParams()
@@ -46,22 +52,6 @@ const Chat = () => {
         }
         addToDb()
 
-        // const fetchDbData=async()=>{
-        //     // if(hasFetchedRef.current)return
-        //     const messagesArray=[]
-        //      const querySnapshot = await getDocs(collection(db, "articles", params.id, "messages"));
-        //      //if there are no messages in the collection, return
-        //     if(querySnapshot.size===0)return
-        //     //if there are messages push each message into the messages array
-        //     querySnapshot.forEach((doc) => {
-        //         messagesArray.push(doc.data())
-        //     //   console.log(doc.data());
-        //     });
-        //     setMessages(messagesArray)
-        //     // hasFetchedRef.current = true; 
-        //     }
-        //     fetchDbData()
-
             const q = query(
                 collection(db, "articles", params.id, "messages"),
                 orderBy('timestamp') // Assuming you have a 'timestamp' field in your messages to order them
@@ -80,7 +70,11 @@ const Chat = () => {
     },[message])
 
     useEffect(()=>{
+        messageRef.current.scrollIntoView({
+            block:'end',
+            behavior:'smooth',
 
+        })
     },[messages])
 
   
@@ -92,19 +86,30 @@ const handleSubmit=(e)=>{
     setMessage(inputText)
     setInputText('')
 }
-
+console.log('-------------------------------')
+console.log(messages.length)
 
   return (
-    <div>
-        <form onSubmit={(e)=>handleSubmit(e)}>
-            <input type="text" value={inputText} onChange={(e)=>setInputText(e.target.value)}/>
-            <button type='submit'>Send Message</button>
-        </form>
-        <div className="message-container">
-            {messages.map((msg,idx)=>(
-                <p key={idx}>{msg.message} {msg.timestamp} {msg.author.slice(0,12)}</p>
-            ))}
-        </div>
+    <div className='chat'>
+        {(messages.length>0)?(
+                   <div className="message-container">
+                   {messages.map((msg,idx)=>(
+                       <Message key={idx} msg={msg}/>
+                   ))}
+               <div ref={messageRef}>
+       
+               </div>
+               </div>
+        ):(<>
+            <h1 className='no-msg-found-header'>Looks like no one has weighed in on this yet. Share your thoughts!</h1>
+            <div ref={messageRef}>
+                </div>
+                </>
+
+        )}
+ 
+        <ChatBox inputText={inputText} setInputText={setInputText} handleSubmit={handleSubmit}/>
+
     </div>
   )
 }

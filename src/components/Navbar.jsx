@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import {FaBars,FaTimes} from 'react-icons/fa'
 import '../css/Navbar.css';
 
 const Navbar = () => {
     const [isMobile, setIsMobile] = useState(false);
+    const location=useLocation()
+    
+    useEffect(()=>{
+        setIsMobile(false)
+    },[location])
 
     return (
         <nav className='navbar'>
-            <div className="hamburger" onClick={() => setIsMobile(!isMobile)}>
-                ☰
-            </div>
-            <div className='left-nav-content-wrapper'>
-                <ul className={`left-nav-content ${isMobile ? 'mobile' : ''}`}>
+
+            <div className={`left-nav-content-wrapper ${isMobile ? 'mobile' : ''}`}>
+                <ul className={`left-nav-content`}>
                     <li>
                         <NavLink to={'/NBA'} className='nav-link'>
                         NBA
@@ -38,8 +42,8 @@ const Navbar = () => {
             <h2 className='nav-header'><NavLink to={'/'} className='nav-link-header' >The Sports Room</NavLink></h2>
              
             
-            <div className='right-nav-content-wrapper'>
-                <ul className={`right-nav-content ${isMobile ? 'mobile' : ''}`}>
+            <div className={`right-nav-content-wrapper ${isMobile ? 'mobile' : ''}`}>
+                <ul className={`right-nav-content`}>
                     <li>
                     <NavLink to={'/CFB'} className='nav-link'>
                         CFB
@@ -62,6 +66,13 @@ const Navbar = () => {
                     </li>
                 </ul>
             </div>
+            {!isMobile?(            <button className="hamburger" onClick={() => setIsMobile(!isMobile)}>
+                <FaBars className='hamburger-icon'/>
+            </button>):(            <button className="hamburger" onClick={() => setIsMobile(!isMobile)}>
+                <FaTimes className='close-icon'/>
+            </button>)}
+
+
         </nav>
     );
 };
