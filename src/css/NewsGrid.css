@@ -55,7 +55,7 @@
     align-items: center;
 }
 .header-container .news-item-header{
-    font-size: clamp(1.25rem, 1.036rem + 1.071vw, 2.75rem);
+    font-size: clamp(1.25rem, .836rem + 1.071vw, 2.75rem);
 }
 .news-item-1 .header-container{
     width: 25%;
@@ -228,4 +228,10 @@
     
 }
 
+.img-not-found{
+    object-fit: fill;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px 0 0 5px;
+}
 

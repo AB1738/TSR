@@ -1,19 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@400..900&display=swap');
+
 .not-found-container{
     height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: 'Audiowide',sans-serif;
+    color: white;
+
 }
 
 .not-found-wrapper{
-    background-color: black;
+    background-color: rgb(156, 129, 132);
     width: 50%;
-    height: 350px;
+    height: 400px;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    flex-direction: column;
+    text-align: center;
+    scale: 3.5;
+    animation: scale-down .5s ease-in .5s forwards;
 }
 .not-found-wrapper h3{
     color: white;
+    opacity: 0;
+    animation: load-in .75s ease-in .5s forwards;
+}
+.not-found-wrapper p{
+    opacity: 0;
+    animation: load-in .75s ease-in .5s forwards;
+}
+.return-btn{
+    width: 85%;
+    opacity: 0;
+    animation: load-in .75s ease-in .5s forwards;
+}
+.return-link{
+    color:#492f38;
+    text-decoration: none;
+}
+@media(max-width:750px){
+    .not-found-wrapper{
+        width: 75%;
+    }
+}
+
+@keyframes scale-down{
+    from{
+        scale: 3.5;
+    }
+    to{
+        scale: 1;
+    }
+}
+@keyframes load-in{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }

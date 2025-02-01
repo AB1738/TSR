@@ -27,7 +27,13 @@ const NewsItem = ({info,idx,sport}) => {
     state={{ articleData: info }} // Passing the data through state
 >
          <div className="img-container">
-        <img src={info.images[0].url} alt={info.images[0].caption} className='news-item-img' />
+            {((info.images && info.images[0] && info.images[0].url !== undefined))?(
+                <img src={info.images[0].url} alt={info.images[0].caption} className='news-item-img' />
+            ):(
+            <img src={'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930'} alt={'no image found'} className='img-not-found' />
+            )
+            }
+        
         </div>
         <div className="header-container">
         <h1 className='news-item-header'>{info.headline}</h1>
