@@ -17,8 +17,6 @@ const NewsItem = ({info,idx,sport}) => {
         cName='news-item news-item-4'
     }
 
-    // console.log(idx%4)
-    // console.log(`/${sport}/${info.dataSourceIdentifier}`)
   return (
 
     <div className={cName}>
