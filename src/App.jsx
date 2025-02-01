@@ -15,6 +15,7 @@ import NotFound from './pages/NotFound';
 import Article from './pages/Article';
 import Footer from './components/Footer';
 import './App.css'
+import ScrollToTop from './components/ScrollToTop';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
     <>
     <Router>
      <Navbar/>
+     <ScrollToTop/>
      <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/nba" element={<NBA />} />

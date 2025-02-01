@@ -1,5 +1,6 @@
 import React from 'react'
 import '../css/Home.css'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
@@ -10,7 +11,8 @@ const Home = () => {
       <div className="stroke2 pos3"></div>
       <div className="stroke2 pos4"></div>
     </div> 
-      
+
+  
       <section className="hero">
         <h1 className='hero-header'>Welcome to the Ultimate Sports Chat Room!</h1>
         <p className='hero-desc'>Whether you're a die-hard fan or just getting into the game, this is the place to connect with fellow sports lovers from around the world. Here, you'll find a real-time, fast-paced community where you can talk about everything from the latest match results, breaking news, exciting plays, and even offbeat sports trivia!</p>
@@ -28,37 +30,37 @@ const Home = () => {
         <p className='hero-desc'>Dive into the latest sports discussions now and start connecting with fans just like you. Click below to check out the latest news and join the conversation!</p>
         <ul className='sports-links'>
           <li />
-           <a href="/NBA">
+          <Link to={'/NBA'} >
              <button className="btn btn-light">NBA</button>
-           </a>
+             </Link>
           <li />
-          <a href="/NFL">
+          <Link to={'/NFL'} >
            <button className="btn btn-light">NFL</button>
-          </a>
+          </Link>
           <li />
-          <a href="/NHL">
+          <Link to={'/NHL'} >
           <button className="btn btn-light">NHL</button>
-          </a>
+          </Link>
           <li />
-          <a href="/MLB">
+          <Link to={'/MLB'} >
           <button className="btn btn-light">MLB</button>
-          </a>
+          </Link>
           <li />
-          <a href="/CFB">
+          <Link to={'/CFB'} >
           <button className="btn btn-light">CFB</button>
-          </a>
+          </Link>
           <li />
-          <a href="/CBB">
+          <Link to={'/CBB'} >
           <button className="btn btn-light">CBB</button>
-          </a>
+          </Link>
           <li />
-          <a href="/UFC">
+          <Link to={'/UFC'} >
           <button className="btn btn-light">UFC</button>
-          </a>
+          </Link>
           <li />
-          <a href="/WNBA">
+          <Link to={'/WNBA'} >
           <button className="btn btn-light">WNBA</button>
-          </a>
+          </Link>
         </ul>
 
         <p className='hero-desc'>Whether you’re a fan of the underdogs or rooting for the champions, there’s a spot for you here. So, what are you waiting for? Join the conversation now and never miss a moment of the sports world!</p>
