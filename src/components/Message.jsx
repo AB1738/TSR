@@ -4,9 +4,6 @@ import { CgProfile } from "react-icons/cg";
 
 
 const Message = ({msg}) => {
-    const randomColor=()=>{
-        return `rgb(${Math.floor((Math.random()*256)+1)},${Math.floor((Math.random()*256)+1)},${Math.floor((Math.random()*256)+1)})`
-    }
 
   return (
     <div className='chat-message'>

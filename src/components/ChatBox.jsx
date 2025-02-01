@@ -1,6 +1,5 @@
 import React from 'react'
 import '../css/ChatBox.css'
-import { VscSend } from "react-icons/vsc";
 import { FaCircleChevronUp } from "react-icons/fa6";
 
 
@@ -11,9 +10,7 @@ const ChatBox = ({inputText,setInputText,handleSubmit}) => {
     <form onSubmit={(e)=>handleSubmit(e)} className='chat-form'>
     <input className='chat-input'type="text" value={inputText} onChange={(e)=>setInputText(e.target.value)} placeholder='What’s your take on this latest update?'/>
     <button  className='chat-btn' type='submit'>
-        {/* <VscSend className='btn-icon'/> */}
         <FaCircleChevronUp className='btn-icon'/>
-
   </button>
 </form>
 </div>

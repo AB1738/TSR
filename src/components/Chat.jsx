@@ -44,21 +44,22 @@ const Chat = () => {
                   timestamp: new Date().toLocaleString(),
                   author:`anon-${localStorage.getItem('id')}`
                 });
-                console.log("Document written with ID: ", docRef.id);
+                // console.log("Document written with ID: ", docRef.id);
                 
               } catch (e) {
                 console.error("Error adding document: ", e);
               }
         }
         addToDb()
-
+        // Create a query to retrieve the messages collection of a specific article
             const q = query(
                 collection(db, "articles", params.id, "messages"),
-                orderBy('timestamp') // Assuming you have a 'timestamp' field in your messages to order them
+                orderBy('timestamp') // Ordering by the timestamo field
               );
 
+              // Set up a real-time listener for the query using onSnapshot
               const unsub = onSnapshot(q, (querySnapshot) => {
-                const messagesArray = [];
+                const messagesArray = [];  //empty array to hold all the messages after looping through them
                 querySnapshot.forEach((doc) => {
                   messagesArray.push(doc.data());
                 console.log(doc.data())
@@ -69,11 +70,11 @@ const Chat = () => {
 
     },[message])
 
+    //When the messages array changes(new message was sent), scroll to the bottom to display the new message
     useEffect(()=>{
         messageRef.current.scrollIntoView({
             block:'end',
             behavior:'smooth',
-
         })
     },[messages])
 
@@ -86,8 +87,6 @@ const handleSubmit=(e)=>{
     setMessage(inputText)
     setInputText('')
 }
-console.log('-------------------------------')
-console.log(messages.length)
 
   return (
     <div className='chat'>

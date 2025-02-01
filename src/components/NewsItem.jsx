@@ -1,6 +1,6 @@
 import React from 'react'
 import '../css/NewsItem.css'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const NewsItem = ({info,idx,sport}) => {
     let cName=''
@@ -20,7 +20,7 @@ const NewsItem = ({info,idx,sport}) => {
   return (
 
     <div className={cName}>
-            <NavLink  className='article-link'
+            <Link  className='article-link'
     to={`/${sport}/${info.dataSourceIdentifier}`} 
     state={{ articleData: info }} // Passing the data through state
 >
@@ -36,7 +36,7 @@ const NewsItem = ({info,idx,sport}) => {
         <div className="header-container">
         <h1 className='news-item-header'>{info.headline}</h1>
         </div>
-        </NavLink>
+        </Link>
     </div>
     
   )

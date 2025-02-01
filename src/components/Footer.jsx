@@ -1,14 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import '../css/Footer.css'
 
 
 const Footer = () => {
-    
-    const [path,setPath]=useState(window.location.pathname)
-    useEffect(()=>{
 
-    },[path])
-    // const isHomepage = window.location.pathname === "/";
   return (
 <footer className="footer">
   <div className="footer-content">
