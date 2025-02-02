@@ -7,7 +7,7 @@ const UFC = () => {
   const {info,isLoading,error}=useFetch('https://site.api.espn.com/apis/site/v2/sports/mma/ufc/news' )
 
   return (
-    <Page info={info} isLoading={isLoading}/>
+    <Page info={info} isLoading={isLoading} sport='ufc'/>
 
   )
 }

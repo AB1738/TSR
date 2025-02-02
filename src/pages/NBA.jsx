@@ -9,7 +9,7 @@ const NBA = () => {
   );
 
   return (
-    <Page info={info} isLoading={isLoading}/>
+    <Page info={info} isLoading={isLoading} sport='nba'/>
 
   );
 };

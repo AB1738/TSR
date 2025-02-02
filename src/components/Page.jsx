@@ -3,7 +3,7 @@ import NewsGrid from './NewsGrid'
 import Spinner from "react-bootstrap/Spinner";
 
 
-const Page = ({isLoading,info}) => {
+const Page = ({isLoading,info,sport}) => {
   return (
     <main className='content-wrapper'>
             {isLoading ? (
@@ -16,7 +16,7 @@ const Page = ({isLoading,info}) => {
           </Spinner>
         </div>
       ) : (
-        <NewsGrid info={info.articles} sport="nfl" />
+        <NewsGrid info={info.articles} sport={sport} />
       )}
       
     </main>

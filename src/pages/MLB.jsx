@@ -7,7 +7,7 @@ const MLB = () => {
   const {info,isLoading,error}=useFetch('https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/news')
   
   return (
-    <Page info={info} isLoading={isLoading}/>
+    <Page info={info} isLoading={isLoading} sport='mlb'/>
 
   )
 }
