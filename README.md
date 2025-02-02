@@ -26,7 +26,9 @@ You can try the app live by clicking the link below:
 
 Here's a short demo video showcasing how **TheSportsRoom** works. It's about 1:40 long and demonstrates the core features of the app:
 
-[Watch Demo](https://youtu.be/Sz_-Z8AYB1o)
+[![Watch the demo](https://img.youtube.com/vi/Sz_-Z8AYB1o/maxresdefault.jpg)](https://www.youtube.com/watch?v=Sz_-Z8AYB1o)
+
+
 
 ## How It Works
 
